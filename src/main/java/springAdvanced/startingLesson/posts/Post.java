@@ -16,6 +16,7 @@ public class Post {
      private Integer userId;
      private String title;
      private String body;
+//     private
 
      public Post(Document document) {
           this.mongoID=document.getObjectId("_id");
