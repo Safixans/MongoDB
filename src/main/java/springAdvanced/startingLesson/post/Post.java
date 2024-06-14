@@ -1,26 +1,22 @@
 package springAdvanced.startingLesson.post;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import jakarta.persistence.*;
-import lombok.*;
-import springAdvanced.startingLesson.post.dtos.CommentDTO;
+
+import java.io.Serializable;
 
 
-import java.util.List;
-
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Builder
-@Entity
-public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Post implements Serializable {
     private Integer id;
     private String title;
     private String body;
-
+    private Integer userId;
 
 }
