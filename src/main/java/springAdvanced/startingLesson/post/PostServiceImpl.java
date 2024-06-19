@@ -77,15 +77,18 @@ public class PostServiceImpl implements PostService {
         } else {
             throw new RuntimeException("Failed to create comment");
         }
-    }*/
-  /*  @Override
+    }*//*
+
+  */
+/*  @Override
     public Void createComment(@NonNull List<CommentCreateDTO> dtos) {
         RestTemplate restTemplate = new RestTemplate();
         String url = "http://localhost:8080/api/posts/comment";
         restTemplate.postForEntity(url, dtos, Void.class);
         return null;
 }
-    }*/
+    }*//*
+
 
 
 package springAdvanced.startingLesson.post;
@@ -148,3 +151,4 @@ public class PostServiceImpl implements PostService {
         commentResource.saveAll(dtos);
     }
 }
+*/

@@ -1,3 +1,6 @@
+server:
+  port: 9090
+
 spring:
   datasource:
     url: jdbc:h2:file:./db
@@ -10,21 +13,21 @@ spring:
     properties:
       hibernate:
         format_sql: true
-comments:
+
+products:
   url:
-    base: http://localhost:9595/api/comments
-    postComments: ${comments.url.base}/{0}/post
-    saveComments: ${comments.url.base}/saveAll
-logging: # request response qatta qanaqaligini korsatadigan log
+    base: http://localhost:8080/v1/product
+    createProduct: ${products.url.base}/create
+    updateProduct: ${products.url.base}/update
+    deleteProduct: ${products.url.base}/delete
+    getProduct: ${products.url.base}/get/{id}
+    listProducts: ${products.url.base}/list
+
+logging:
   level:
     org.zalando.logbook: trace
-    org: # restTemplate body sini log lari uchun
+    org:
       springframework:
         web:
           client:
             RestTemplate: trace
-#logbook:
-#  predicate:
-#    exclude:
-#      - /api/posts/comment
-##       mana shu uchun log yozma dgani

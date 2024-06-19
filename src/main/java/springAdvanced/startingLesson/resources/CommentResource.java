@@ -1,3 +1,4 @@
+/*
 package springAdvanced.startingLesson.resources;
 
 import lombok.NonNull;
@@ -21,6 +22,7 @@ public class CommentResource {
     @Value("${comments.url.saveComments}")
     private String saveCommentsURL;
 
+
     private final RestTemplate restTemplate;
     private final WebClient webClient;
 
@@ -33,9 +35,10 @@ public class CommentResource {
     public List<CommentDTO> getAllComments(@NonNull Integer postId) {
 
         return webClient.get()
-                .uri(postCommentsURL,postId)
+                .uri(postCommentsURL, postId)
                 .retrieve()
-                .bodyToMono(new ParameterizedTypeReference<List<CommentDTO>>() {})
+                .bodyToMono(new ParameterizedTypeReference<List<CommentDTO>>() {
+                })
                 .block();// WebClient default it requests asynchroun request when we write block() -> it requests synchronous requests that we need is synchronous
     }
 
@@ -48,6 +51,6 @@ public class CommentResource {
                 .retrieve()
                 .bodyToMono(Void.class)
                 .block();
-
     }
 }
+*/

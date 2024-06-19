@@ -1,3 +1,4 @@
+/*
 package springAdvanced.startingLesson.post;
 
 import lombok.NonNull;
@@ -14,3 +15,4 @@ public interface PostService {
 
     void createComment(@NonNull List<CommentCreateDTO> dtos);
 }
+*/

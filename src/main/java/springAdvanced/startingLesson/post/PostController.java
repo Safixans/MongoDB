@@ -1,3 +1,4 @@
+/*
 package springAdvanced.startingLesson.post;
 
 import lombok.extern.slf4j.Slf4j;
@@ -16,7 +17,7 @@ public class PostController {
 
     private final PostService postService;
 
-    public PostController(PostServiceImpl postService) {
+    public PostController(PostService postService) {
         this.postService = postService;
     }
 
@@ -38,3 +39,4 @@ public class PostController {
 
 }
 
+*/
