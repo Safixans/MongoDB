@@ -1,3 +1,4 @@
+<!--
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -6,7 +7,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.3.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;
     </parent>
     <groupId>springAdvanced</groupId>
     <artifactId>startingLesson</artifactId>
@@ -21,7 +22,7 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
-            <version>9.10.2</version> <!-- replace with the desired version -->
+            <version>9.10.2</version> &lt;!&ndash; replace with the desired version &ndash;&gt;
         </dependency>
 
         <dependency>
@@ -58,5 +59,10 @@
             <version>3.3.0</version>
             <scope>test</scope>
         </dependency>
+
+
     </dependencies>
+
+
 </project>
+-->

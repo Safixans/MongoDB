@@ -7,16 +7,19 @@ import lombok.NoArgsConstructor;
 
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.spi.LocaleNameProvider;
 
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Post implements Serializable {
+public class Task implements Serializable {
     private Integer id;
     private String title;
-    private String body;
-    private Integer userId;
+    private String description;
+    private String label;
+    private LocalDateTime createdAt;
 
 }

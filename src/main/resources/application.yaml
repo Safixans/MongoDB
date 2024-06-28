@@ -1,16 +1,21 @@
-hateoas:
-  url:
-    base: http://localhost:9088/api/posts/
-logging: # request response qatta qanaqaligini korsatadigan log
-  level:
-    org.zalando.logbook: trace
-    org: # restTemplate body sini log lari uchun
-      springframework:
-        web:
-          client:
-            RestTemplate: trace
-#logbook:
-#  predicate:
-#    exclude:
-#      - /api/posts/comment
-##       mana shu uchun log yozma dgani
+#spring:
+#  datasource:
+#    url: "jdbc:postgresql://localhost:5433/pdpmigration?currentSchema=sb_flyway"
+#    username: postgres
+#    password: 123
+#    driver-class-name: org.postgresql.Driver
+#
+#  flyway:
+#    enabled: true
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/pdpmigration?currentSchema=sb_flyway
+    username: postgres
+    password: your_password
+    driver-class-name: org.postgresql.Driver
+
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://localhost:5433/pdpmigration
+    user: postgres
+    password: your_password
