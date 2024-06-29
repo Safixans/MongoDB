@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:file:./db
+    url: jdbc:h2:mem:~
     username: sa
     password: sa
   jpa:
@@ -10,21 +10,3 @@ spring:
     properties:
       hibernate:
         format_sql: true
-comments:
-  url:
-    base: http://localhost:9595/api/comments
-    postComments: ${comments.url.base}/{0}/post
-    saveComments: ${comments.url.base}/saveAll
-logging: # request response qatta qanaqaligini korsatadigan log
-  level:
-    org.zalando.logbook: trace
-    org: # restTemplate body sini log lari uchun
-      springframework:
-        web:
-          client:
-            RestTemplate: trace
-#logbook:
-#  predicate:
-#    exclude:
-#      - /api/posts/comment
-##       mana shu uchun log yozma dgani
