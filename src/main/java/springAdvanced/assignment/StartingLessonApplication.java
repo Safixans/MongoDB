@@ -1,4 +1,4 @@
-package springAdvanced.startingLesson;
+package springAdvanced.assignment;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -6,13 +6,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
-import springAdvanced.startingLesson.service.CacheService;
-import springAdvanced.startingLesson.service.MailService;
-
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.TimeUnit;
 
 
 @SpringBootApplication
@@ -22,14 +15,13 @@ import java.util.concurrent.TimeUnit;
 @RequiredArgsConstructor
 public class StartingLessonApplication {
 
-    private final CacheService cacheService;
-    private final MailService mailService;
+
 
     public static void main(String[] args) {
         SpringApplication.run(StartingLessonApplication.class, args);
     }
 
-    @Scheduled(initialDelay = 5, fixedDelay = 60, timeUnit = TimeUnit.SECONDS)
+   /* @Scheduled(initialDelay = 5, fixedDelay = 60, timeUnit = TimeUnit.SECONDS)
     public void scheduledTask() {
 
         if (mailService.isSMPTActive()) {
@@ -41,6 +33,6 @@ public class StartingLessonApplication {
         }else
             log.info("SMTP server is off");
 
-
     }
+*/
 }

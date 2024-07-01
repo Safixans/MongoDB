@@ -1,16 +1,15 @@
-package springAdvanced.startingLesson.service;
+package springAdvanced.assignment.service;
 
 import lombok.Getter;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Getter
 @Service
-public class CacheService {
-
+public class UserCacheService {
     private final ConcurrentHashMap<Object, Map<Object, Object>> cache = new ConcurrentHashMap<>();
 
     public void put(Map<Object, Object> model) {
@@ -20,5 +19,4 @@ public class CacheService {
     public Map<Object, Object> get(Object key) {
         return cache.get(key);
     }
-
 }

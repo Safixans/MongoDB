@@ -1,18 +1,13 @@
-package springAdvanced.startingLesson.events;
+package springAdvanced.assignment.events;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-import java.util.concurrent.CompletableFuture;
-
 @RequiredArgsConstructor
 @Getter
 @ToString
-public final class SendMailEvent {
+public final class SendUserEmailEvent {
     private final Integer id;
     private final String mail;
-    private final String otp;
-
-
 }

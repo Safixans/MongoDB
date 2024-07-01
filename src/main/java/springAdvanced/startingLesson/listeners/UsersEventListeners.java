@@ -17,7 +17,7 @@ import java.util.concurrent.CompletableFuture;
 @Component
 @Slf4j
 @RequiredArgsConstructor
-public class UserEventListeners {
+public class UsersEventListeners {
     private final OtpGenerateService otpGenerateService;
     private final MailService mailService;
 
