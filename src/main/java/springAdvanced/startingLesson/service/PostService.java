@@ -5,12 +5,18 @@ import springAdvanced.startingLesson.dtos.PostCreateDTO;
 import springAdvanced.startingLesson.dtos.PostUpdateDTO;
 import springAdvanced.startingLesson.entity.Post;
 
+import java.util.List;
+
 
 @Service
 public interface PostService {
     Post create(PostCreateDTO dto);
 
     Post get(Integer id);
+
     void delete(Integer id);
-    void update(PostUpdateDTO dto);
+
+    Post update(PostUpdateDTO dto);
+
+    List<Post> getAll();
 }

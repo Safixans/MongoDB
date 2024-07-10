@@ -1,12 +1,15 @@
 package springAdvanced.startingLesson.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import springAdvanced.startingLesson.dtos.PostCreateDTO;
 import springAdvanced.startingLesson.dtos.PostUpdateDTO;
 import springAdvanced.startingLesson.entity.Post;
 import springAdvanced.startingLesson.service.PostService;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/posts")
@@ -35,6 +38,13 @@ public class PostController {
     public ResponseEntity<Void> update(@RequestBody PostUpdateDTO dto) {
         postService.update(dto);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/all")
+    @Cacheable(value = "users", key = "#root.methodName")
+    public ResponseEntity<List<Post>> getAll() {
+        return ResponseEntity.ok( postService.getAll());
+
     }
 
 }
