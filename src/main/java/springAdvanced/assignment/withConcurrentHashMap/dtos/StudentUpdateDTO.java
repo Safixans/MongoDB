@@ -1,10 +1,8 @@
-package springAdvanced.assignment.dtos;
+package springAdvanced.assignment.withConcurrentHashMap.dtos;
 
 import lombok.*;
 
-@Getter
-@Setter
-@Builder
+
 public record StudentUpdateDTO(String name, int age){}
 
 

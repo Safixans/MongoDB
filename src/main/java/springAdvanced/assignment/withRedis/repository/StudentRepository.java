@@ -1,8 +1,7 @@
-package springAdvanced.assignment.repository;
+package springAdvanced.assignment.withRedis.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import springAdvanced.assignment.entity.Student;
-
+import springAdvanced.assignment.withRedis.entity.Student;
 
 public interface StudentRepository extends JpaRepository<Student, Long> {
 }
