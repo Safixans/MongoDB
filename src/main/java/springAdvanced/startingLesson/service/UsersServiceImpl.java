@@ -2,6 +2,8 @@ package springAdvanced.startingLesson.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import springAdvanced.startingLesson.dtos.PostCreateDTO;
@@ -9,15 +11,20 @@ import springAdvanced.startingLesson.dtos.PostUpdateDTO;
 import springAdvanced.startingLesson.entity.Post;
 import springAdvanced.startingLesson.repository.PostRepository;
 
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 @Service
-@RequiredArgsConstructor
 public class UsersServiceImpl implements PostService {
 
-    private final ConcurrentHashMap<Integer, Post> cachedPosts = new ConcurrentHashMap<>();
     private final PostRepository postRepository;
+    private final CacheManager cacheManager;
+    private final Cache cache;
+
+    public UsersServiceImpl(PostRepository postRepository, CacheManager cacheManager) {
+        this.postRepository = postRepository;
+        this.cacheManager = cacheManager;
+        this.cache = cacheManager.getCache("posts");
+    }
 
     @Override
     @Transactional
@@ -28,7 +35,7 @@ public class UsersServiceImpl implements PostService {
     @Override
     @SneakyThrows // it means there won`t be thrown an exception
     public Post get(Integer id) {
-        Post postCached = cachedPosts.get(id);
+        Post postCached = cache.get(id, Post.class);
         if (postCached != null) {
             return postCached;
         }
@@ -38,15 +45,15 @@ public class UsersServiceImpl implements PostService {
                 .orElseThrow(
                         () -> new RuntimeException("not found by given id"));
         TimeUnit.SECONDS.sleep(1);
-
-        cachedPosts.put(id, post);
+        cache.put(id, post);
         return post;
     }
 
     @Override
     public void delete(Integer id) {
         postRepository.deleteById(id);
-        cachedPosts.remove(id);
+//        cachedPosts.remove(id);
+        cache.evict(id);
     }
 
     @Override
@@ -59,6 +66,7 @@ public class UsersServiceImpl implements PostService {
         post.setTitle(dto.getTitle());
         post.setBody(dto.getBody());
         postRepository.save(post);
-        cachedPosts.put(dto.getId(), post);
+//        cachedPosts.put(dto.getId(), post);
+        cache.put(dto.getId(), post);
     }
 }
