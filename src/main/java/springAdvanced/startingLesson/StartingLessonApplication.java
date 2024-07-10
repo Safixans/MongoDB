@@ -41,10 +41,4 @@ public class StartingLessonApplication {
         };
     }
 
-    @CacheEvict(value = "posts", allEntries = true)
-    @Scheduled(initialDelay = 8, fixedDelay = 4, timeUnit = TimeUnit.SECONDS)
-    public void deleteAllCachedPosts() {
-log.info("All entries of cached posts are evicting");
-    }
-
 }
