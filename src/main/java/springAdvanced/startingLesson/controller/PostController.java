@@ -8,8 +8,6 @@ import springAdvanced.startingLesson.dtos.PostUpdateDTO;
 import springAdvanced.startingLesson.entity.Post;
 import springAdvanced.startingLesson.service.PostService;
 
-import java.util.concurrent.ConcurrentHashMap;
-
 @RestController
 @RequestMapping("/api/posts")
 @RequiredArgsConstructor
